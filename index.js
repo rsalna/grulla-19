@@ -21,6 +21,5 @@ const countdownElement = document.getElementById('countdown');
             // Cuando la cuenta regresiva termine
             if (distance < 0) {
                 clearInterval(interval);
-                window.location.href = 'luz.html';
             }
         }, 1000);
