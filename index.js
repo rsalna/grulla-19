@@ -1,16 +1,12 @@
 const countdownElement = document.getElementById('countdown');
-const countdownContainer = document.getElementById('countdown-container');
-const finishedContainer = document.getElementById('finished-container');
-
-// Duración de la cuenta regresiva en milisegundos (16 días)
-const countdownDuration = 16 * 24 * 60 * 60 * 1000;
 
 // Función para obtener o establecer la fecha de finalización en localStorage
 function getOrCreateEndDate() {
     let endDate = localStorage.getItem('countdownEndDate');
     if (!endDate) {
-        endDate = new Date().getTime() + countdownDuration;
-        localStorage.setItem('countdownEndDate', endDate);
+        const targetDate = new Date('2024-08-27T00:00:00').getTime();
+        localStorage.setItem('countdownEndDate', targetDate);
+        endDate = targetDate;
     }
     return endDate;
 }
@@ -36,5 +32,7 @@ const interval = setInterval(() => {
     if (distance < 0) {
         clearInterval(interval);
         localStorage.removeItem('countdownEndDate'); // Elimina la fecha de finalización del localStorage
+        // countdownElement.innerHTML = "¡Tiempo finalizado!";
+        location.href = "luz.html";
     }
 }, 1000);
