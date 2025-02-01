@@ -25,32 +25,32 @@
 }
 
 .sectionimg #img1 {
-    background: url('img/uno.JPG');
+    background: url('../img/uno.JPG');
 
 }
 
 .sectionimg #img2 {
-    background: url('img/dos.JPG');
+    background: url('../img/dos.JPG');
 }
 
 .sectionimg #img3 {
-    background: url('img/tres.JPG');
+    background: url('../img/tres.JPG');
 }
 
 .sectionimg #img4 {
-    background: url('img/cuatro.JPG');
+    background: url('../img/cuatro.JPG');
 }
 
 .sectionimg #img5 {
-    background: url('img/cinco.JPG');
+    background: url('../img/cinco.JPG');
 }
 
 .sectionimg #img6 {
-    background: url('img/seis.JPG');
+    background: url('../img/seis.JPG');
 }
 
 .sectionimg #img7 {
-    background: url('img/siete.JPG');
+    background: url('../img/siete.JPG');
 }
 
 .sectionimg #img1,

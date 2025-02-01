@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cuenta Regresiva</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #ff00f24f;
+        color: white;
+      }
+      .countdown-container,
+      .finished-container {
+        text-align: center;
+      }
+      .countdown {
+        font-size: 3em;
+        color: #ec6854;
+      }
+      .hidden {
+        display: none;
+      }
+      h1 {
+        color: #ec6854;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="countdown-container" class="countdown-container">
+      <h1>Cuenta Regresiva</h1>
+      <div id="countdown" class="countdown"></div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
