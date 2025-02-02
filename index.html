@@ -1,170 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>¿Quieres ser mi Valentín?</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-image: url("img/fondo-corazones.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        /* color: white; */
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-
-      h1 {
-        font-size: 3em;
-        margin-top: 0px;
-        margin-bottom: 5px;
-      }
-      
-      h2 {
-        font-size: 3em;
-        margin-top: 0px;
-        margin-bottom: 5px;
-      }
-
-      .gif-container {
-        margin-bottom: 20px;
-      }
-
-      .buttons {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-      }
-
-      button {
-        padding: 10px 20px;
-        font-size: 1.5em;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: transform 0.2s;
-      }
-
-      #si {
-        background-color: #4caf50;
-        color: white;
-        width: 10rem;
-      }
-
-      #no {
-        background-color: #f44336;
-        color: white;
-        position: relative;
-        width: 10rem;
-      }
-
-      .hearts {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        pointer-events: none;
-      }
-
-      .heart {
-        position: absolute;
-        color: red;
-        font-size: 20px;
-        animation: fall 5s linear infinite;
-      }
-
-      @keyframes fall {
-        0% {
-          top: -10%;
-          transform: translateX(0);
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url("img/fondo-corazones.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        100% {
-          top: 110%;
-          transform: translateX(200px);
+
+        h1 {
+            font-size: 3em;
+            margin-top: 0px;
+            margin-bottom: 5px;
         }
-      }
+
+        h2 {
+            font-size: 3em;
+            margin-top: 0px;
+            margin-bottom: 5px;
+        }
+
+        .gif-container {
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #si {
+            background-color: #4caf50;
+            color: white;
+            width: 10rem;
+        }
+
+        #no {
+            background-color: #f44336;
+            color: white;
+            position: relative;
+            width: 10rem;
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10%;
+                transform: translateX(0);
+            }
+            100% {
+                top: 110%;
+                transform: translateX(200px);
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <audio id="background-music" loop>
-      <source src="img/sound-fondo.mp3" type="audio/mpeg" />
+        <source src="img/sound-fondo.mp3" type="audio/mpeg" />
     </audio>
     <div id="content">
-      <h1>¿Quieres ser mi date?</h1>
-      <h2>¿Y ir por un elote?</h2>      
-      <div class="gif-container">
-        <img src="img/pom-pom-purin-pompompurin.gif" alt="Gif de amor" />
-      </div>
-      <div class="buttons">
-        <button id="si">Sí</button>
-        <button id="no">No</button>
-      </div>
+        <h1>¿Quieres ser mi date?</h1>
+        <h2>¿Y ir por un elote?</h2>
+        <div class="gif-container">
+            <img src="img/pom-pom-purin-pompompurin.gif" alt="Gif de amor" />
+        </div>
+        <div class="buttons">
+            <button id="si">Sí</button>
+            <button id="no">No</button>
+        </div>
     </div>
 
     <div class="hearts" id="hearts">
-      <!-- Corazones generados dinámicamente -->
+        <!-- Corazones generados dinámicamente -->
     </div>
 
     <script>
-      const noButton = document.getElementById("no");
-      const siButton = document.getElementById("si");
-      const content = document.getElementById("content");
-      const heartsContainer = document.getElementById("hearts");
+        const noButton = document.getElementById("no");
+        const siButton = document.getElementById("si");
+        const content = document.getElementById("content");
+        const heartsContainer = document.getElementById("hearts");
 
-      noButton.addEventListener("mouseover", () => {
-        const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
-        const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
-        noButton.style.position = "absolute";
-        noButton.style.left = `${x}px`;
-        noButton.style.top = `${y}px`;
-      });
+        // Función para mover el botón "No"
+        const moveNoButton = () => {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.position = "absolute";
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        };
 
-      siButton.addEventListener("click", () => {
-        content.innerHTML = `
+        // Evento para mover el botón "No" en dispositivos móviles (touch)
+        noButton.addEventListener("touchstart", (e) => {
+            e.preventDefault(); // Evita el comportamiento predeterminado del touch
+            moveNoButton();
+        });
+
+        // Evento para mover el botón "No" en dispositivos de escritorio (mouse)
+        noButton.addEventListener("mouseover", () => {
+            moveNoButton();
+        });
+
+        // Evento para el botón "Sí"
+        siButton.addEventListener("click", () => {
+            content.innerHTML = `
                 <h1>Sabía que dirías que sí</h1>
                 <div class="gif-container">
                     <img src="img/pompompurin-si.gif" alt="Gif de amor">
                 </div>
             `;
-        startHearts();
-      });
-      function startHearts() {
-        for (let i = 0; i < 50; i++) {
-          const heart = document.createElement("div");
-          heart.classList.add("heart");
-          heart.innerHTML = "❤️";
-          heart.style.left = `${Math.random() * 100}%`;
-          heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
-          heartsContainer.appendChild(heart);
+            startHearts();
+        });
+
+        // Función para iniciar la lluvia de corazones
+        function startHearts() {
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                heartsContainer.appendChild(heart);
+            }
+
+            // Reproducir música de fondo
+            const backgroundMusic = document.getElementById("background-music");
+            backgroundMusic.play().catch((error) => {
+                console.log("La reproducción automática fue bloqueada. Haz clic en la página para reproducir.");
+            });
+
+            // Reproducir música al hacer clic en la página
+            document.body.addEventListener("click", () => {
+                backgroundMusic.play();
+            });
         }
-        // Selecciona el elemento de audio
-        const backgroundMusic = document.getElementById("background-music");
-
-        // Reproduce la música automáticamente cuando la página se carga
-        window.addEventListener("load", () => {
-          backgroundMusic.play().catch((error) => {
-            console.log(
-              "La reproducción automática fue bloqueada. Haz clic en la página para reproducir."
-            );
-          });
-        });
-
-        // Reproduce la música al hacer clic en la página (útil para desbloquear la reproducción automática)
-        document.body.addEventListener("click", () => {
-          backgroundMusic.play();
-        });
-      }
     </script>
-  </body>
+</body>
 </html>
