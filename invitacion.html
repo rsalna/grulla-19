@@ -62,31 +62,32 @@
        LADO IZQUIERDO
     ========================= */
 
-    .passport-left {
-        width: 50%;
-        left: 0;
-        z-index: 5;
-        transform-origin: right center;
-        transform-style: preserve-3d;
-        background:
-            linear-gradient(145deg, #2f1d10, #140d08);
-        border-radius: 28px 0 0 28px;
-        border: 5px solid #8d5c2c;
-        transition:
-            opacity .3s linear;
-    }
+.passport-left {
+    width: 50%;
+    left: 0;
+    z-index: 5;
+    transform-origin: right center;
+    transform-style: preserve-3d;
+    border-radius: 28px 0 0 28px;
+    transition: opacity .3s linear;
+    transform: rotateY(180deg);
+    background: none;
+    overflow: hidden;
+}
 
-    .passport-left {
-        transform: rotateY(180deg);
-    }
+.passport-left::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('img.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    .passport-left::before {
-        content: '';
-        position: absolute;
-        inset: 14px;
-        border: 1px solid rgba(255, 255, 255, .2);
-        border-radius: 18px 0 0 18px;
-    }
+    /* Corrige la imagen volteada */
+    transform: rotateY(180deg);
+    /* backface-visibility: hidden; */
+}
 
     .passport-cover-content {
         height: 100%;
@@ -412,11 +413,7 @@
                 <div class="passport-page passport-left" id="leftPage">
 
                     <div class="passport-cover-content">
-                        <p>República del Amor</p>
 
-                        <h1>PASAPORTE</h1>
-
-                        <p>Edición Especial</p>
                     </div>
 
                 </div>
